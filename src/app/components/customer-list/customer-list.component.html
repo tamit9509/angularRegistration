@@ -1,0 +1,17 @@
+<div class="container" *ngIf="customers">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+      </tr>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.customerData.name}}</td>
+        <td>{{customer.customerData.email}}</td>
+        <td>{{customer.customerData.age}}</td>
+      </tr>
+    </table>
+  </div>
+  <a routerLink="/customer-create"> Add Customer</a>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div ngModelGroup="userData" #userData="ngModelGroup">
+          <div class="form-group">
+            <label> Name:</label>
+            <input type="text" class="form-control" name="name" ngModel #name="ngModel" required />
+            <p class="err" *ngIf="!name.valid && name.touched">{{errors.required}}</p>
+          </div>
+          <div class="form-group">
+            <label> Email:</label>
+            <input type="email" class="form-control" name="email" ngModel email #email="ngModel" required />
+            <p class="err" *ngIf="!email.valid && email.touched">{{errors.validEmail}}</p>
+          </div>
+          <div class="form-group">
+            <label> Age:</label>
+            <input type="number" class="form-control" name="age" ngModel #age="ngModel" required />
+            <p class="err" *ngIf="!age.valid && age.touched">{{errors.required}}</p>
+          </div>
+          <div class="form-group">
+            <label> Password:</label>
+            <input type="password" class="form-control" pattern="^[a-zA-Z]\w{6,12}$" name="psw" ngModel #psw="ngModel"
+              required />
+            <p class="err" *ngIf="!psw.valid && psw.touched">{{errors.validPassword}}</p>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
